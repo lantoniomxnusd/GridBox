@@ -1,0 +1,92 @@
+/* macOS-Inspired Login Styles */
+body {
+    background: url('sierra_nayarit.jpeg') no-repeat center center/cover;
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(7px);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 320px;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, .2); 
+}
+
+
+.logo {
+        width: 300px;
+        height: auto;
+}
+    
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.6),
+                inset -2px -2px 5px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.5);
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(145deg, #b0b0b0, #d0d0d0); /* Darker gradient */
+    backdrop-filter: blur(10px); /* Apply the blur effect for a glassy appearance */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(255, 255, 255, 0.5); /* Stronger shadow for more depth */
+    font-size: 16px;
+    font-weight: bold;
+    color: #A03472; /* Color matching the text for consistency */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(145deg, #ffffff, #e0e0e0);
+}
+
+input,
+button {
+    width: 100%; /* Ensure full width of container */
+    max-width: 280px; /* Prevent stretching too much */
+    padding: 12px;
+    margin: 10px auto; /* Auto centers */
+    border: none;
+    border-radius: 8px;
+}
+
+
+button:active {
+    transform: translateY(4px); /* Move the button down slightly to simulate pressing */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(255, 255, 255, 0.3); /* Shadow gets smaller for a pressed effect */
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Light color for the placeholder */
+}
+
+.footer {
+    font-weight: bold;
+    color: #00BFFF;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 5); 
+}
+
