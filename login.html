@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+
+    <link rel="stylesheet" href="login.css">
+    <script type="text/javascript" src="/md5.js"></script>
+</head>
+<body class="login">
+    <div class="login-container">
+        <img class="logo" src="santa_fe_link_logo.png" alt="Logo">
+        <h2>Iniciar Sesión</h2>
+        
+        <form name="login" method="post" action="$(link-login-only)" onsubmit="return doLogin();">
+            <input type="hidden" name="dst" value="$(link-orig)">
+            <input type="hidden" name="popup" value="true">
+
+            <input autocomplete="on" name="username" id="username" placeholder="Cliente" class="user" required>
+            <input autocomplete="off" type="password" name="password" id="password" placeholder="Clave" class="password" required>
+            
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+
+        <div class="footer">
+            <p> ©️ 2025 Luis Antonio Olivares Medina</p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function doLogin() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username === "" || password === "") {
+                alert("Por favor, ingrese usuario y clave.");
+                return false;
+            }
+
+            // MikroTik CHAP Authentication
+            if ("$(chap-id)" !== "") {
+                password = hexMD5("$(chap-id)" + password + "$(chap-challenge)");
+            }
+
+            // Create hidden password field to avoid sending plain text
+            var passwordField = document.createElement("input");
+            passwordField.type = "hidden";
+            passwordField.name = "password";
+            passwordField.value = password;
+            
+            document.querySelector("form[name='login']").appendChild(passwordField);
+            document.getElementById("password").remove(); // Remove plain text password field
+
+            return true; // Submit form
+        }
+
+        // Auto-focus username input on page load
+        document.getElementById("username").focus();
+    </script>
+
+    <script type="text/javascript">
+        document.oncontextmenu = function() { return false; } // Disable right-click
+    </script>
+    <audio id="background-music" autoplay loop>
+        <source src="mi_lindo_nayarit.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>

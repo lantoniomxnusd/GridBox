@@ -98,7 +98,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-<script>
     document.addEventListener('DOMContentLoaded', function () {
         var audio = document.getElementById("background-music");
 
@@ -108,5 +107,4 @@ document.addEventListener("DOMContentLoaded", function() {
                 audio.play();
             }
         });
-    });
-</script>
+});
