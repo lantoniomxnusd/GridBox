@@ -97,14 +97,18 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   }
 });
+document.addEventListener("DOMContentLoaded", function () {
+    let audio = document.getElementById("background-music");
 
-    document.addEventListener('DOMContentLoaded', function () {
-        var audio = document.getElementById("background-music");
+    // Try autoplay
+    audio.play().catch(() => {
+        console.log("Autoplay blocked, waiting for user interaction.");
+    });
 
-        // Play the audio when the user clicks anywhere on the page
-        document.body.addEventListener('click', function () {
-            if (audio.paused) {
-                audio.play();
-            }
-        });
+    // Ensure playback starts on user interaction
+    document.body.addEventListener("click", function () {
+        if (audio.paused) {
+            audio.play();
+        }
+    });
 });
